@@ -61,8 +61,8 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         return user
     
 class UserSerializer(serializers.ModelSerializer):
-    model = User
     class Meta:
+        model = User
         fields = ('id', 'username')
     
 

@@ -17,20 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.authtoken.views import obtain_auth_token
+from .swagger import schema_view
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',include('callboard.urls')),
-    path('api-token-auth/', obtain_auth_token, name='api_token_auth')
+    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
 
-# {
-#     "username": "Aditya123",
-#     "first_name": "Aditya",
-#     "last_name": "Anand",
-#     "password": "password123@",
-#     "password2": "password123@",
-#     "email": "adityash212@gmail.com"
-# }

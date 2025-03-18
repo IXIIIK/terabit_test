@@ -7,13 +7,12 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, generics
 from rest_framework.permissions import IsAuthenticated
+from drf_yasg.utils import swagger_auto_schema
 
 # models
 from .models import Advertisment, Category, Requests, Comments
 # serilaizer
 from .serializers import AdvertismentSerializer, CategorySerializer, UserLoginSerializer, UserRegisterSerializer, BookSerializer, CommentsSerializer
-
-from rest_framework import status, viewsets
 from rest_framework.response import Response
 
 
@@ -43,6 +42,11 @@ class UserLoginAPIView(APIView):
 
 class UserRegisterAPIView(APIView):
     '''Register views'''
+
+    @swagger_auto_schema(
+        operation_description="Регистрация нового пользователя",
+        responses={200: UserLoginSerializer()})
+    
     def post(self, request, *args, **kargs):
         serializer = UserRegisterSerializer(data=request.data)
         if serializer.is_valid():
