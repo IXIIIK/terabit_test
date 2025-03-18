@@ -9,22 +9,24 @@ services:
       - .:/terabit_test
     depends_on:
       - db
-    environment:
-      - DJANGO_SETTINGS_MODULE=terabit_test.settings
     env_file:
-      - .env 
+      - .env
+    environment:
+      DJANGO_SUPERUSER_USERNAME: admin
+      DJANGO_SUPERUSER_EMAIL: admin@example.com
+      DJANGO_SUPERUSER_PASSWORD: admin123
 
   db:
     image: postgres:15
     environment:
-      POSTGRES_DB: ${DB_NAME}  
-      POSTGRES_USER: ${DB_USER} 
-      POSTGRES_PASSWORD: ${DB_PASSWORD}  
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
-      - "543:5432"
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
-      - ./db-init:/docker-entrypoint-initdb.d
 
 volumes:
   pgdata:
+

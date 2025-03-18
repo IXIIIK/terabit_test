@@ -61,6 +61,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         return user
     
 class UserSerializer(serializers.ModelSerializer):
+    '''Users serialize'''
     class Meta:
         model = User
         fields = ('id', 'username')
@@ -90,6 +91,7 @@ class BookSerializer(serializers.ModelSerializer):
 
 
 class CommentsSerializer(serializers.ModelSerializer):
+    '''Commets serialize'''
     author = UserSerializer(read_only=True)  
   
     class Meta:  

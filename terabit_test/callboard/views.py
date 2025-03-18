@@ -77,6 +77,7 @@ class AdvertismentCreateView(generics.ListCreateAPIView):
     serializer_class = AdvertismentSerializer
     permission_classes = [IsAuthenticated]
 
+
     
 class AdvertismentDetailView(generics.RetrieveUpdateDestroyAPIView):
     '''Detail advertisment views'''
@@ -84,11 +85,6 @@ class AdvertismentDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = AdvertismentSerializer  
     #permission_classes = [IsAuthenticated]
     
-
-class BookAdvertismentView(APIView):
-    pass
-
-
 
 class AdvertismentListView(generics.ListAPIView):
     '''All advertisment views'''
@@ -110,7 +106,7 @@ class AdvertismentDeleteView(generics.DestroyAPIView):
     '''Delete advertisment'''
     queryset = Advertisment.objects.all()
     serializer_class = AdvertismentSerializer
-    #permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
@@ -125,6 +121,7 @@ class CategoryViewSet(generics.ListAPIView):
 
 
 class BookAdvertismentViews(APIView):
+    '''Book item views'''
     queryset = Advertisment.objects.all()
     serializer_class = BookSerializer
 
@@ -140,11 +137,13 @@ class BookAdvertismentViews(APIView):
     
 
 class AllRequestsViews(generics.ListAPIView):
+    '''All requests on advertisment view'''
     queryset = Requests.objects.all()
     serializer_class = BookSerializer
 
 
 class ApproveAdvertismentView(APIView):
+    '''Approve request view'''
     def post(self, request, pk):
         try:
             order = Advertisment.objects.get(id=pk)
@@ -160,6 +159,7 @@ class ApproveAdvertismentView(APIView):
 
 
 class RejectedAdvertismentView(APIView):
+    '''Reject requests view'''
     def post(self, request, pk):
         try:
             order = Advertisment.objects.get(id=pk)
@@ -175,6 +175,7 @@ class RejectedAdvertismentView(APIView):
     
 
 class CommentView(generics.ListCreateAPIView):
+    '''Comment view'''
     queryset = Comments.objects.all()  
     serializer_class = CommentsSerializer   
   
