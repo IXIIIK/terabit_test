@@ -1,23 +1,25 @@
 ### Всем привет! Это мое тестовое задание для компаниии Terabit
+---
 
 #### Интсрукция по установке
 - Скопируйте репозиторий на свой компьютер
 
-\```
-https://github.com/IXIIIK/terabit_test.git
-\```
+```
+git clone https://github.com/IXIIIK/terabit_test.git
+```
 
 -  Перейдите в деректории проекта
 
-\```
+
+```
 cd terabit_test && cd terabit_test
-\```
+```
 
 -  Cоберите докер образ
 
-\```
+```
 docker-compose up --build
-\```
+```
 
 -  Откройте в браузере вот эту ссылку: __http://127.0.0.1:8000/api/__
 <br>
