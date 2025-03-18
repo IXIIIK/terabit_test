@@ -25,6 +25,12 @@ docker-compose up --build
 <br>
 
 __ВАЖНО!__ Вы увидите ошибку, но на этой странице прописаны все конечные эндпоинты
+<br>
+
+### Admin panel
+__login:__ admin
+<br>
+__password:__ admin123
 
 ---
 
